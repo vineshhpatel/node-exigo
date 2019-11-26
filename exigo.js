@@ -1,6 +1,6 @@
 'use strict';
 var foam = require('foam');
-var hogan = require('hogan');
+var hogan = require('hogan.js');
 var heredoc = require('heredoc');
 
 var AUTH_TEMPLATE = hogan.compile(heredoc(function() {/*
@@ -29,7 +29,7 @@ var ExigoClient = function(auth) {
 		throw new ExigoError('Authentication object is required');
 
 	this.namespace = 'http://api.exigo.com/';
-	this.uri = 'http://api.exigo.com/3.0/ExigoApi.asmx';
+	this.uri = auth.uri;
 
 	this.options = {
 		namespace: this.namespace,
